@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tudoku</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="books_list">Books list</string>
+    <string name="login_button">Log in!</string>
+    <string name="password_hint">password</string>
+    <string name="username_hint">username</string>
+    <string name="account_label">tudoku</string>
+    <!-- error messages -->
+    <string name="error_username_empty">Username is empty</string>
+    <string name="error_password_empty">Password is empty</string>
+    <string name="error_login_wrong_credentials">Something wrong with your login info</string>
+    <string name="waiting_for_data_message">Contacting server, please wait...</string>
+</resources>

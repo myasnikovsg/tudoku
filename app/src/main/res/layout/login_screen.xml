@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        style="@style/Button"
+        android:text="@string/login_button"
+        android:id="@+id/login_button"
+        android:layout_marginBottom="215dp"
+        android:layout_alignParentBottom="true"
+         />
+
+    <EditText
+        style="@style/EditText"
+        android:id="@+id/username_field"
+        android:layout_above="@+id/password_field"
+        android:imeOptions="flagNavigateNext"
+        android:singleLine="true"
+        android:hint="@string/username_hint"
+        />
+
+    <EditText
+        style="@style/EditText"
+        android:inputType="textPassword"
+        android:id="@+id/password_field"
+        android:layout_above="@+id/login_button"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:hint="@string/password_hint"
+        />
+
+    <ImageButton
+        style="@style/ImageButton"
+        android:id="@+id/login_facebook_button"
+        android:layout_above="@+id/username_field"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:src="@drawable/facebook_logo_grey"/>
+
+    <ImageButton
+        style="@style/ImageButton"
+        android:id="@+id/login_twitter_button"
+        android:layout_toStartOf="@+id/login_facebook_button"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:src="@drawable/twitter_logo_grey"
+        android:layout_above="@+id/username_field"
+        android:layout_toLeftOf="@+id/login_facebook_button" />
+
+</RelativeLayout>
