@@ -27,7 +27,7 @@
                 android:resource="@xml/authenticator" />
         </service>
         <activity
-            android:name=".app.attractions.AttractionsListActivity"
+            android:name=".app.books.BooksListActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".app.AuthenticatorActivity" />
-        <activity android:name=".app.AttractionViewActivity" />
+        <activity android:name=".app.attractions.AttractionViewActivity" />
     </application>
 
 </manifest>

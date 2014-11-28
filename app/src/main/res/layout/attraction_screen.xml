@@ -7,7 +7,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
-        android:id="@+id/activity_short_name"
+        android:id="@+id/attraction_short_name"
         android:layout_alignBottom="@+id/backButton"
         android:layout_toRightOf="@+id/backButton"
         android:layout_toEndOf="@+id/backButton"
@@ -30,46 +30,31 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/activity_image"
-        android:layout_below="@+id/activity_short_name"
+        android:id="@+id/attraction_image"
+        android:layout_below="@+id/attraction_short_name"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/activity_image">
-        <TabHost
-            android:id="@android:id/tabhost"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            >
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                >
+        android:layout_below="@+id/attraction_image">
+        <android.support.v4.view.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/attraction_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <TabWidget
-                    android:id="@android:id/tabs"
-                    android:orientation="horizontal"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    />
+            <android.support.v4.view.PagerTabStrip
+                android:id="@+id/attraction_pager_tab_strip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:background="#33b5e5"
+                android:textColor="#fff"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
 
-                <FrameLayout
-                    android:id="@android:id/tabcontent"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_weight="0"/>
 
-                <FrameLayout
-                    android:id="@+id/realtabcontent"
-                    android:layout_width="fill_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-        </TabHost>
+        </android.support.v4.view.ViewPager>
     </LinearLayout>
 
 </RelativeLayout>

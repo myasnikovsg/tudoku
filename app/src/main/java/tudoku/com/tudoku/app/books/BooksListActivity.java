@@ -1,4 +1,4 @@
-package tudoku.com.tudoku.app.attractions;
+package tudoku.com.tudoku.app.books;
 
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -6,15 +6,13 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
 import tudoku.com.tudoku.R;
-import tudoku.com.tudoku.app.AttractionViewActivity;
+import tudoku.com.tudoku.app.attractions.AttractionViewActivity;
 import tudoku.com.tudoku.app.AuthAwareActivity;
-import tudoku.com.tudoku.app.books.BookViewHolder;
 import tudoku.com.tudoku.content.Columns;
 import tudoku.com.tudoku.content.TudokuContentProvider;
 import tudoku.com.tudoku.service.TudokuService;
@@ -22,7 +20,7 @@ import tudoku.com.tudoku.util.Action;
 import tudoku.com.tudoku.util.Extra;
 
 
-public class AttractionsListActivity extends AuthAwareActivity implements LoaderManager.LoaderCallbacks<Cursor> {
+public class BooksListActivity extends AuthAwareActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String[] PROJECTION = {Columns.BOOK_ID,
             Columns.BOOK_ATTRACTION_ID,
@@ -32,7 +30,7 @@ public class AttractionsListActivity extends AuthAwareActivity implements Loader
             Columns.BOOK_TIME_START};
     private static final String SELECTION = null;
 
-    AttractionsListAdapter mListAdapter;
+    BooksListAdapter mListAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +39,11 @@ public class AttractionsListActivity extends AuthAwareActivity implements Loader
 
         Intent serviceIntent = new Intent();
         serviceIntent.setAction(Action.UPDATE_BOOKS);
-        serviceIntent.setClass(AttractionsListActivity.this, TudokuService.class);
+        serviceIntent.setClass(BooksListActivity.this, TudokuService.class);
         sendServiceRequest(serviceIntent);
 
         ListView listView = (ListView) findViewById(R.id.books_list_view);
-        mListAdapter = new AttractionsListAdapter(this,
+        mListAdapter = new BooksListAdapter(this,
                 R.layout.books_list_item, null, PROJECTION, null, 0);
         getContentResolver().delete(TudokuContentProvider.ATTRACTIONS_CONTENT_URI, null, null);
         listView.setAdapter(mListAdapter);
@@ -56,11 +54,11 @@ public class AttractionsListActivity extends AuthAwareActivity implements Loader
 
                 Intent serviceIntent = new Intent();
                 serviceIntent.setAction(Action.UPDATE_ATTRACTION);
-                serviceIntent.setClass(AttractionsListActivity.this, TudokuService.class);
+                serviceIntent.setClass(BooksListActivity.this, TudokuService.class);
                 serviceIntent.putExtra(Extra.ATTRACTION_ID, attractionId);
                 sendServiceRequest(serviceIntent);
 
-                Intent activityIntent = new Intent(AttractionsListActivity.this, AttractionViewActivity.class);
+                Intent activityIntent = new Intent(BooksListActivity.this, AttractionViewActivity.class);
                 activityIntent.putExtra(Extra.ATTRACTION_ID, attractionId);
                 startActivity(activityIntent);
             }

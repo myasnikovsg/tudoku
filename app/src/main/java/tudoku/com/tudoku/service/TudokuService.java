@@ -50,7 +50,6 @@ public class TudokuService extends Service {
             Log.d(LOG_TAG, "loaded account with name " + accountName + " and type " + accountType);
             mAccount = new Account(accountName, accountType);
         }
-//        Log.d(LOG_TAG, "registering ")
     }
 
     @Override
@@ -132,11 +131,6 @@ public class TudokuService extends Service {
             return;
         }
 
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-        }
-
         TudokuServerConnector serverConnector = new TudokuServerConnector(token);
         AttractionDataType attraction = serverConnector.getAttraction(
                 intent.getIntExtra(Extra.ATTRACTION_ID, -1));
@@ -169,22 +163,5 @@ public class TudokuService extends Service {
                 getContentResolver().insert(TudokuContentProvider.BOOKS_CONTENT_URI, book.asContentValues());
             }
         }
-
-//        String selection = Columns.ATTRACTIONS_DATE + " > " + System.currentTimeMillis();
-//
-//        Cursor cursor = getContentResolver().query(TudokuContentProvider.ATTRACTIONS_CONTENT_URI, new String[]{Columns.ATTRACTION_REF_ID}, selection, null, Columns.ATTRACTION_REF_ID + " ASC");
-//        int columnIndex = cursor.getColumnIndex(Columns.ATTRACTION_REF_ID);
-//
-//        while (cursor.moveToNext()) {
-//            long referenceId = cursor.getLong(columnIndex);
-//            serverAttractionIds.remove(referenceId);
-//        }
-//
-//        cursor.close();
-//
-//        List<AttractionDataType> attractionsFromServer = serverConnector.getAttractions(serverAttractionIds);
-//        for (AttractionDataType attraction : attractionsFromServer) {
-//            getContentResolver().insert(TudokuContentProvider.ATTRACTIONS_CONTENT_URI, attraction.asContentValues());
-//        }
     }
 }

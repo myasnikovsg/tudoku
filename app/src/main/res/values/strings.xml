@@ -9,6 +9,9 @@
     <string name="password_hint">password</string>
     <string name="username_hint">username</string>
     <string name="account_label">tudoku</string>
+    <string name="attraction_description">Description</string>
+    <string name="attraction_map">Location</string>
+    <string name="attraction_comments">Comments</string>
     <!-- error messages -->
     <string name="error_username_empty">Username is empty</string>
     <string name="error_password_empty">Password is empty</string>

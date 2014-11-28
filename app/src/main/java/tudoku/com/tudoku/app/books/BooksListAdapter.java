@@ -1,4 +1,4 @@
-package tudoku.com.tudoku.app.attractions;
+package tudoku.com.tudoku.app.books;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -21,7 +21,7 @@ import tudoku.com.tudoku.app.books.BookViewHolder;
 import tudoku.com.tudoku.content.Columns;
 
 
-public class AttractionsListAdapter extends SimpleCursorAdapter {
+public class BooksListAdapter extends SimpleCursorAdapter {
     private static final String LOG_TAG = "ATTR_LIST";
 
     private LayoutInflater mLayoutInflater;
@@ -32,7 +32,7 @@ public class AttractionsListAdapter extends SimpleCursorAdapter {
 
     private LruCache<String, Bitmap> mCache;
 
-    public AttractionsListAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
+    public BooksListAdapter(Context context, int layout, Cursor c, String[] from, int[] to, int flags) {
         super(context, layout, c, from, to, flags);
         mContext = context;
         mLayout = layout;
